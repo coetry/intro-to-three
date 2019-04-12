@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "intro-to-three",
+  "builds": [
+    { "src": "*.html", "use": "@now/html-minify" },
+    { "src": "**/.jpg", "use": "@now/static" }
+  ]
+}
