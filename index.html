@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>threeeee</title>
+    <style>
+      body {
+          margin: 0;
+      }
+      canvas {
+	  width: 100%;
+	  height: 100%;
+      }
+    </style>
+    <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/103/three.min.js"></script>
+      <script>
+	const scene = new THREE.Scene()
+	console.log('scene', scene)
+	const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+	console.log('camera', camera)
+	const renderer = new THREE.WebGLRenderer()
+	console.log('renderer', renderer)
+
+	renderer.setSize(window.innerWidth, window.innerHeight)
+	document.body.appendChild(renderer.domElement)
+
+	const geometry = new THREE.BoxGeometry(1, 1, 1)
+	console.log('geometry', geometry)
+	const material = new THREE.MeshBasicMaterial({ color: '#FFFFFF', wireframe: true })
+	console.log('material', material)
+	const cube = new THREE.Mesh(geometry, material)
+	console.log('cube', cube)
+
+	scene.add(cube)
+
+	camera.position.z = 3
+
+	function update() {
+	  cube.rotation.x += 0.01
+	  cube.rotation.y += 0.01
+	  cube.rotation.z += 0.01
+	}
+	
+	function render() {
+	  renderer.render(scene, camera)
+	}
+
+	function gameLoop() {
+	  requestAnimationFrame(gameLoop)
+	  update()
+	  render()
+	}
+
+	gameLoop()
+      </script>
+    </body>
+  </head>
+</html>
