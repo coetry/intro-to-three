@@ -3,6 +3,6 @@
   "name": "intro-to-three",
   "builds": [
     { "src": "*.html", "use": "@now/html-minifier" },
-    { "src": "**/.jpg", "use": "@now/static" }
+    { "src": "**/*.jpg", "use": "@now/static" }
   ]
 }
